@@ -1,16 +1,18 @@
 
 import React, { useRef, useEffect, useState, Suspense } from 'react';
-import { Sampler } from 'tone';
+import Tone from 'tone';
 import A1 from '../../audio/A1.mp3'
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 export default function App() {
+  const { Sampler } = Tone;
 
   const [isLoaded, setLoaded] = useState(false);
   const sampler = useRef(null);
 
-   useEffect(() => {
+   
+useEffect(() => {
     sampler.current = new Sampler(
       { A1 },
       {
@@ -18,9 +20,9 @@ export default function App() {
           setLoaded(true);
         }
       }
-    ).toDestination();
+  ).toDestination();
+  
   }, []);
-
 
 
   const cube = useRef();
@@ -29,6 +31,8 @@ export default function App() {
 
     const obj = spline.findObjectById('fd2c9efa-d5aa-469e-aae9-e5b1a24b9efe');
     cube.current = obj;
+
+    
   }
   console.log(cube)
 
