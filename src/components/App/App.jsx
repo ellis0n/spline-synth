@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState, Suspense } from 'react';
-import Tone from 'tone';
+import * as Tone from 'tone';
 import A1 from '../../audio/A1.mp3'
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
